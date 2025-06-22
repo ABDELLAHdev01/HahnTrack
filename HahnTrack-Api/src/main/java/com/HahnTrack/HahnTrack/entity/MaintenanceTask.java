@@ -1,6 +1,10 @@
 package com.HahnTrack.HahnTrack.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.FutureOrPresent;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -22,23 +26,25 @@ public class MaintenanceTask {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Title is required")
+    @Size(min = 3, max = 255, message = "Title must be between 3 and 255 characters")
     private String title;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Description is required")
     private String description;
 
-    @Column(nullable = false)
+    @NotBlank(message = "Machine name is required")
     private String machineName;
 
+    @NotNull(message = "Priority is required")
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private TaskPriority priority;
 
+    @NotNull(message = "Status is required")
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private TaskStatus status;
 
+    @FutureOrPresent(message = "Due date cannot be in the past")
     private LocalDate dueDate;
 
     private LocalDateTime createdAt;
