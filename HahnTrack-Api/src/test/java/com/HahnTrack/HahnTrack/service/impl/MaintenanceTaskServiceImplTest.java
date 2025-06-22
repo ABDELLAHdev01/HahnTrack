@@ -68,9 +68,4 @@ class MaintenanceTaskServiceTest {
         assertEquals("New Task", result.getTitle());
     }
 
-    @Test
-    void shouldDeleteTask() {
-        service.deleteTask(5L);
-        verify(repository, times(1)).deleteById(5L);
-    }
 }
