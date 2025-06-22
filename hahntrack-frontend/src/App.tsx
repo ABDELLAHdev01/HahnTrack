@@ -2,13 +2,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TaskList from './pages/TaskList';
 import TaskForm from './pages/TaskForm';
-import Overlay from './components/Overlay';
-import BackgroundWrapper from './components/BackgroundWrapper';
 import './index.css';
 
 function App() {
   return (
- 
+ <>
 
  <Router>
       <Routes>
@@ -17,6 +15,8 @@ function App() {
         <Route path="/edit/:id" element={<TaskForm />} />
       </Routes>
     </Router>
+
+    </>
   );
 }
 

@@ -38,7 +38,14 @@ function TaskForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6"
+     style={{
+        backgroundImage: "url('/cover.png')",  // assuming cover.png is in public folder
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        
+      }}
+      >
       <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-xl">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
           {id ? "Edit Task" : "Add New Task"}

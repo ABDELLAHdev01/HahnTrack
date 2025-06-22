@@ -22,7 +22,12 @@ function TaskList() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-8">
+    <div className="min-h-screen bg-gray-100 p-8"
+    style={{
+        backgroundImage: "url('/cover.png')",  // assuming cover.png is in public folder
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
       <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg p-6">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold text-gray-800">Maintenance Tasks</h1>
