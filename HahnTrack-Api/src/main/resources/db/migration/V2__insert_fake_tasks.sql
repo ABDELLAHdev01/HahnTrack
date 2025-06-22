@@ -1,4 +1,4 @@
-INSERT INTO maintenance_task (title, description, machine_name, priority, status, due_date, created_at, updated_at)
+INSERT INTO maintenance_tasks (title, description, machine_name, priority, status, due_date, created_at, updated_at)
 VALUES
 
 ('Check conveyor belt', 'Routine inspection of conveyor belt tension and wear.', 'Machine A', 'MEDIUM', 'PENDING', '2025-06-30', NOW(), NOW()),
