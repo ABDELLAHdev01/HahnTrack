@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import api from "../api/axios";
 import { MaintenanceTask } from "../domain/MaintenanceTask";
 import TaskFormFields from "../components/TaskFormFields";
+import Button from "../components/Button";
 
 const initialForm: MaintenanceTask = {
   title: "",
@@ -40,7 +41,9 @@ function TaskForm() {
   return (
     <form onSubmit={handleSubmit}>
       <TaskFormFields form={form} onChange={handleChange} />
-      <button type="submit">✅ {id ? "Update" : "Create"}</button>
+      <Button type="submit" variant="primary">
+        {id ? "Update" : "Create"}
+      </Button>
     </form>
   );
 }
