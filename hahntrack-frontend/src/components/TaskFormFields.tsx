@@ -9,59 +9,79 @@ interface TaskFormFieldsProps {
 export default function TaskFormFields({ form, onChange }: TaskFormFieldsProps) {
   return (
     <>
-      <div>
-        <label>Title:</label><br />
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="title">Title:</label>
         <input
+          id="title"
           name="title"
           value={form.title}
           onChange={onChange}
           required
           placeholder="Title"
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
-      
-      <div>
-        <label>Description:</label><br />
+
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="description">Description:</label>
         <input
+          id="description"
           name="description"
           value={form.description}
           onChange={onChange}
           placeholder="Description"
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
-      <div>
-        <label>Machine Name:</label><br />
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="machineName">Machine Name:</label>
         <input
+          id="machineName"
           name="machineName"
           value={form.machineName}
           onChange={onChange}
           placeholder="Machine Name"
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
-      <div>
-        <label>Due Date:</label><br />
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="dueDate">Due Date:</label>
         <input
+          id="dueDate"
           name="dueDate"
           type="date"
           value={form.dueDate}
           onChange={onChange}
+          className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
       </div>
 
-      <div>
-        <label>Priority:</label><br />
-        <select name="priority" value={form.priority} onChange={onChange}>
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="priority">Priority:</label>
+        <select
+          id="priority"
+          name="priority"
+          value={form.priority}
+          onChange={onChange}
+          className="w-full px-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
           <option value="LOW">Low</option>
           <option value="MEDIUM">Medium</option>
           <option value="HIGH">High</option>
         </select>
       </div>
 
-      <div>
-        <label>Status:</label><br />
-        <select name="status" value={form.status} onChange={onChange}>
+      <div className="mb-4">
+        <label className="block mb-1 font-semibold text-gray-700" htmlFor="status">Status:</label>
+        <select
+          id="status"
+          name="status"
+          value={form.status}
+          onChange={onChange}
+          className="w-full px-3 py-2 border border-gray-300 rounded bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        >
           <option value="PENDING">Pending</option>
           <option value="IN_PROGRESS">In Progress</option>
           <option value="COMPLETED">Completed</option>

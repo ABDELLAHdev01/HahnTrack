@@ -34,17 +34,25 @@ function TaskForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     const req = id ? api.put(`/tasks/${id}`, form) : api.post("/tasks", form);
-
     req.then(() => navigate("/"));
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <TaskFormFields form={form} onChange={handleChange} />
-      <Button type="submit" variant="primary">
-        {id ? "Update" : "Create"}
-      </Button>
-    </form>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-xl">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+          {id ? "Edit Task" : "Add New Task"}
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <TaskFormFields form={form} onChange={handleChange} />
+          <div className="text-center mt-6">
+            <Button type="submit" variant="primary">
+              {id ? "Update" : "Create"}
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 }
 
