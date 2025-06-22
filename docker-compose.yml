@@ -1,0 +1,39 @@
+version: '3.8'
+
+
+services:
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # must set root password here
+      MYSQL_DATABASE: hahn_track  # optional: initial DB name
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  hahntrack-api:
+    build:
+      context: ./hahntrack-api
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/hahn_track
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+    depends_on:
+      - db
+
+  hahntrack-frontend:
+    build:
+      context: ./hahntrack-frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:80"
+    depends_on:
+      - hahntrack-api
+
+volumes:
+  mysql-data:
